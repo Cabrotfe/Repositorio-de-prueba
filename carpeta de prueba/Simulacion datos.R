@@ -39,4 +39,5 @@ base=cbind(base,psicometricos)
 
 ############ Acá voy a agregar alguna lesera en Github y veamos cómo ocurre el Merge cuando hago Pull:
 
+## veamos si ahora hago push
 
