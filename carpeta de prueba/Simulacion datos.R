@@ -39,4 +39,6 @@ base=cbind(base,psicometricos)
 
 ############ Acá voy a agregar alguna lesera en Github y veamos cómo ocurre el Merge cuando hago Pull:
 
+cor(base$depresion, base$ansiedad) ## Esto es para echar a perder el código.
+
 
