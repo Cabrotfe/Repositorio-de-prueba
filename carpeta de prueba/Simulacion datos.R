@@ -37,6 +37,6 @@ psicometricos=base_dum[,!str_detect(string=colnames(base_dum),pattern = one_or_m
 base=cbind(base,psicometricos)
 
 
-
+############ Acá voy a agregar alguna lesera en Github y veamos cómo ocurre el Merge cuando hago Pull:
 
 
