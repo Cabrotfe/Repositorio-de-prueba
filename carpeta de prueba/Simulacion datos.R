@@ -36,11 +36,35 @@ psicometricos=base_dum[,!str_detect(string=colnames(base_dum),pattern = one_or_m
 
 base=cbind(base,psicometricos)
 
-
+base$depresion=base$depresion[,1]
+base$ansiedad=base$ansiedad[,1]
+### Esto fue un pull y un push, para probar a ver si funcionaban #################
 ############ Acá voy a agregar alguna lesera en Github y veamos cómo ocurre el Merge cuando hago Pull:
-
-
 ## veamos si ahora hago push
 
 cor(base$depresion, base$ansiedad) ## Esto es para echar a perder el código.
+
+
+###################################################################3
+glimpse(base)
+base$zona=factor(base$zona,levels=c("sur","centro","norte"))
+base$NSE=factor(base$NSE,levels=c("bajo","medio","alto"))
+
+# Podría interesarnos saber cómo se vincula la depresión con las variables de NSE y 
+# Zona geográfica
+
+# Hagamos gráficos simples:
+
+base %>% ggplot(aes(x=zona, y=depresion)) +
+  stat_summary(fun.data = mean_sdl, fun.args = list(mult=2), geom = "errorbar", size=1, width=0.5)+
+  stat_summary(fun.y = "mean", geom = "point", size=2, aes(color=NSE, group=NSE)) +
+  stat_summary(fun.y = "mean", geom = "line", size=1, aes(color=NSE, group=NSE), alpha=.5) +
+  theme_bw() + geom_point(alpha=.05, position=position_jitter(.3),size=.5) +
+  theme(legend.position = "top", legend.title = element_text(size=5))
+
+
+
+
+
+
 
